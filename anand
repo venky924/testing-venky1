@@ -1,0 +1,18 @@
+
+@echo off
+echo Downloading Google Chrome...
+set DOWNLOAD_URL=https://dl.google.com/chrome/install/latest/chrome_installer.exe
+set INSTALLER=chrome_installer.exe
+
+rem Download the Chrome installer
+powershell -Command "(New-Object System.Net.WebClient).DownloadFile('%DOWNLOAD_URL%', '%INSTALLER%')"
+
+rem Run the installer
+echo Installing Google Chrome...
+start /wait %INSTALLER% /silent /install
+
+rem Clean up by deleting the installer
+del %INSTALLER%
+
+echo Installation complete!
+pause
